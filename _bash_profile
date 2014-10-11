@@ -10,3 +10,8 @@ eval "$(rbenv init -)"
 #export RBENV_VERSION=2.0.0-p247
 #PATH=$(cat /etc/paths /etc/paths.d/* | tr -s "\n" ":") # defaultのPATH設定
 #PATH=${PATH%:}
+
+#ターミナル起動時に.bashrcを自動で読み込み
+if [ -f ~/.bashrc ] ; then
+    . ~/.bashrc
+fi
