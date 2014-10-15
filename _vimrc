@@ -15,10 +15,10 @@ filetype plugin indent off
 
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
-    call neobundle#rc(expand('~/.vim/bundle'))
+    call neobundle#begin(expand('~/.vim/bundle/'))
+    NeoBundleFetch 'Shougo/neobundle.vim'
+    call neobundle#end()
 endif 
-
-NeoBundleFetch 'Shougo/neobundle.vim'
 
 " plugin
 NeoBundle 'Shougo/unite.vim'
