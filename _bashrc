@@ -10,7 +10,7 @@ fi
 #pecoの設定
 export HISTCONTROL="ignoredups"
 peco-history() {
-  local NUM=$(history | wc -l)
+    local NUM=$(history | wc -l)
     local FIRST=$((-1*(NUM-1)))
 
     if [ $FIRST -eq 0 ] ; then
