@@ -9,12 +9,7 @@ set softtabstop=4 "空白に対してタブでカーソルがずれる幅
 set autoindent "改行時に前のインデントを継続する
 set smartindent "改行時に入力された末尾に合わせて次の行のインデントを増減する
 set cursorline
-"highlight CursorLine ctermfg=Yellow
-"highlight CursorLine ctermfg=Blue
-"hi CursorLine guibg=#222222 gui=none
-"highlight Normal ctermbg=black ctermfg=grey
-"highlight StatusLine term=none cterm=none ctermfg=black ctermbg=grey
-hi CursorLine
+hi CursorLine term=underline ctermbg=234 guibg=#293739
 
 "NeoBundle {
 set nocompatible
