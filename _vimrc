@@ -9,6 +9,9 @@ set softtabstop=4 "空白に対してタブでカーソルがずれる幅
 set autoindent "改行時に前のインデントを継続する
 set smartindent "改行時に入力された末尾に合わせて次の行のインデントを増減する
 set cursorline
+set encoding=utf-8          " デフォルトencodeをutf8とする
+set fileencodings=utf-8,iso-2022-jp,euc-jp,cp932,ucs2le,ucs-2
+set fileformats=unix "
 hi CursorLine term=underline ctermbg=234 guibg=#293739
 
 "NeoBundle {
@@ -32,6 +35,8 @@ NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'Markdown'
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
 
 filetype plugin indent on
 " }
@@ -71,3 +76,18 @@ let g:unite_source_grep_recursive_opt = ''
 vnoremap /g y:Unite grep::-iRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
 " }
 " }}}
+
+" Previm {{{
+" The prefic key.
+"nmap  <Space>p :g
+" }}}
+augroup PrevimSettings                                                                                                                                    
+    autocmd!                                                                                                                                              
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown                                                                           
+augroup END
+
+" Previm
+nnoremap [previm] <Nop>
+nmap <Space>p [previm]
+nnoremap <silent> [previm]o :<C-u>PrevimOpen<CR>
+nnoremap <silent> [previm]r :call previm#refresh()<CR>

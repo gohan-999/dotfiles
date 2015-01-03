@@ -1,10 +1,13 @@
 #alias vi='open -a /Applications/MacVim.app/Contents/MacOS/MacVim'
 alias ls='ls -FG'
 alias ssh='TERM=xterm ssh'
+#brew doctorでwarningが出る時の対処(http://shoya.io/blog/brew_doctor/)
+alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 export PATH="$PATH:/bin:/usr/bin:/usr/local/bin"
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$PATH"
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$HOME/.phpenv/bin:$PATH"
+#export PATH='/usr/local/bin:$PATH'
 eval "$(rbenv init -)"
 
 #export RBENV_VERSION=2.0.0-p247
@@ -15,3 +18,7 @@ eval "$(rbenv init -)"
 if [ -f ~/.bashrc ] ; then
     . ~/.bashrc
 fi
+export PATH=/usr/local/bin:$PATH
+# phpenv
+#export PATH=$HOME/.phpenv/bin:$PATH
+eval "$(phpenv init -)"

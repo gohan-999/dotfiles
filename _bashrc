@@ -36,3 +36,7 @@ peco-history() {
     fi
 }
 bind -x '"\C-r":peco-history'
+
+# phpenv
+export PATH=$HOME/.phpenv/bin:$PATH
+eval "$(phpenv init -)"
