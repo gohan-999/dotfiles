@@ -40,3 +40,7 @@ bind -x '"\C-r":peco-history'
 # phpenv
 export PATH=$HOME/.phpenv/bin:$PATH
 eval "$(phpenv init -)"
+
+#git branch 補完
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
