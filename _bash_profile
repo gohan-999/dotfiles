@@ -1,6 +1,7 @@
 #alias vi='open -a /Applications/MacVim.app/Contents/MacOS/MacVim'
 alias ls='ls -FG'
 alias ssh='TERM=xterm ssh'
+alias psysh='~/.composer/vendor/bin/psysh'
 #brew doctorでwarningが出る時の対処(http://shoya.io/blog/brew_doctor/)
 alias brew="env PATH=${PATH/\/Users\/${USER}\/\.pyenv\/shims:?/} brew"
 export PATH="$PATH:/bin:/usr/bin:/usr/local/bin"
