@@ -3,46 +3,46 @@
 export PS1='\[\e[0;90m\][\D{%F %T}] \[\e[0;96m\]\W\[\e[40;1;32m\]$(__git_ps1)\[\e[0;90m\]-> \[\e[0;97m\]'
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+#export PATH="/usr/local/heroku/bin:$PATH"
 
 #cdコマンド関係の設定ファイル読み込み
-if [ -f .cd_conf ]; then
-    . .cd_conf
-fi
+#if [ -f .cd_conf ]; then
+#    . .cd_conf
+#fi
 
 #pecoの設定
-export HISTCONTROL="ignoredups"
-peco-history() {
-    local NUM=$(history | wc -l)
-    local FIRST=$((-1*(NUM-1)))
-
-    if [ $FIRST -eq 0 ] ; then
-        # Remove the last entry, "peco-history"
-        history -d $((HISTCMD-1))
-        echo "No history" >&2
-        return
-    fi
-
-    local CMD=$(fc -l $FIRST | sort -k 2 -k 1nr | uniq -f 1 | sort -nr | sed -E 's/^[0-9]+[[:blank:]]+//' | peco | head -n 1)
-
-    if [ -n "$CMD" ] ; then
-        # Replace the last entry, "peco-history", with $CMD
-        history -s $CMD
-
-        if type osascript > /dev/null 2>&1 ; then
-            # Send UP keystroke to console
-            (osascript -e 'tell application "System Events" to keystroke (ASCII character 30)' &)
-        fi
-    else
-        # Remove the last entry, "peco-history"
-        history -d $((HISTCMD-1))
-    fi
-}
-bind -x '"\C-r":peco-history'
+#export HISTCONTROL="ignoredups"
+#peco-history() {
+#    local NUM=$(history | wc -l)
+#    local FIRST=$((-1*(NUM-1)))
+#
+#    if [ $FIRST -eq 0 ] ; then
+#        # Remove the last entry, "peco-history"
+#        history -d $((HISTCMD-1))
+#        echo "No history" >&2
+#        return
+#    fi
+#
+#    local CMD=$(fc -l $FIRST | sort -k 2 -k 1nr | uniq -f 1 | sort -nr | sed -E 's/^[0-9]+[[:blank:]]+//' | peco | head -n 1)
+#
+#    if [ -n "$CMD" ] ; then
+#        # Replace the last entry, "peco-history", with $CMD
+#        history -s $CMD
+#
+#        if type osascript > /dev/null 2>&1 ; then
+#            # Send UP keystroke to console
+#            (osascript -e 'tell application "System Events" to keystroke (ASCII character 30)' &)
+#        fi
+#    else
+#        # Remove the last entry, "peco-history"
+#        history -d $((HISTCMD-1))
+#    fi
+#}
+#bind -x '"\C-r":peco-history'
 
 # phpenv
-export PATH=$HOME/.phpenv/bin:$PATH
-eval "$(phpenv init -)"
+#export PATH=$HOME/.phpenv/bin:$PATH
+#eval "$(phpenv init -)"
 
 #git branch 補完
 source /usr/local/etc/bash_completion.d/git-prompt.sh
