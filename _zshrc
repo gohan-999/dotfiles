@@ -1,0 +1,31 @@
+export LSCOLORS=Fxfxcxdxbxegedabagacad
+alias ls='ls -GF'
+
+eval "$(rbenv init -)"
+eval "$(pyenv init -)"
+eval "$(nodenv init -)"
+
+# 左プロンプト設定
+ source ~/.zsh/git-prompt.sh
+ fpath=(~/.zsh $fpath)
+ zstyle ':completion:*:*:git:*' script ~/.zsh/_git
+ autoload -Uz compinit && compinit -u
+ setopt PROMPT_SUBST
+ #PS1='%F{240}[Xx🐤xX] %F{220}%c%f %F{green}$(__git_ps1 "(%s)")%f %F{240}->%f '
+ #PS1='%F{240}[🐤 < %D{%Y-%m-%d %H:%M:%S}] %F{220}%c%f %F{green}$(__git_ps1 "(%s)")%f %F{240}->%f '
+ PS1='%F{240}🐤 [%D{%Y-%m-%d %H:%M:%S}] %F{220}%c%f %F{green}$(__git_ps1 "(%s)")%f %F{240}->%f '
+# プロンプトのオプション表示設定
+# GIT_PS1_SHOWDIRTYSTATE=true
+# GIT_PS1_SHOWUNTRACKEDFILES=true
+# GIT_PS1_SHOWSTASHSTATE=true
+# GIT_PS1_SHOWCOLORHINTS=true
+# GIT_PS1_SHOWUPSTREAM=auto
+
+# 右プロンプト設定
+setopt prompt_subst
+TMOUT=1
+TRAPALRM() {zle reset-prompt}
+RPROMPT="%F{white}[%D{%Y-%m-%d %H:%M:%S}]%f"
+
+# homebrew
+export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
